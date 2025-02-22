@@ -3,7 +3,8 @@ package Base;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import Commons.BrowserFactory;
@@ -18,7 +19,7 @@ public class baseclass {
 	private String appurl;
 	ConfigReader config = new ConfigReader();
 	
-	@BeforeSuite
+	@BeforeTest
 	@Parameters({"browser"})
 	public void opendsalgo(String browser) throws IOException {
 		driver =bf.browsersetup(browser);
@@ -33,6 +34,7 @@ public class baseclass {
 	login.login(username, password);
 	}
 	
+	@AfterTest
 	public void closebrowser() {
 		driver.quit();
 	}

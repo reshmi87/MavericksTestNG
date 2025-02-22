@@ -5,9 +5,7 @@ import static org.testng.Assert.assertEquals;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 
@@ -24,7 +22,7 @@ public class Queuetest {
 	String pagetitle;
 	WebDriver driver;
 	
-    @BeforeTest
+    @BeforeClass
     public void logintoportal() throws IOException {
 	   	base.login();
 		qpf=new Queuepf();
@@ -154,11 +152,6 @@ public class Queuetest {
 		String output = qpf.getoutput();
 		assertEquals(output, expectedconsoleoutput, "Incorrect output displayed.");
 		LoggerLoad.info("Output is "+output);
-	}
-	
-	@AfterTest
-	public void exitfromportal() {
-		base.closebrowser();
 	}
 
 }
