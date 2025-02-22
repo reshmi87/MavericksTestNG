@@ -1,13 +1,11 @@
 package Tests;
 
-import static org.testng.Assert.assertEquals;
-
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 
 import Base.baseclass;
 import Commons.ConfigReader;
@@ -33,7 +31,7 @@ public class Queuetest {
 	    pagetitle = qpf.Queuepage();
 		LoggerLoad.info("Currently in page: "+pagetitle);
 		qpf.navigateback();
-		}
+	}
 	
 	@Test(priority=2)
 	public void queuefromdd() {
@@ -121,28 +119,25 @@ public class Queuetest {
 		qpf.navigateback();
 		qpf.PracticeQuestion();
 		boolean checkcontent = qpf.PracticeQuestioncontentcheck();
-		assertEquals(checkcontent, true, "No content displayed.");
+		Assert.assertTrue(checkcontent,  "No content displayed.");
 	}
 	
-
 	public void nocodetest() {
 		pagetitle = qpf.tryhere();
 		qpf.clickrun();
 		boolean ifalertdisplayed = qpf.isAlertPresent();
-		assertEquals(ifalertdisplayed, true, "No alert displayed.");
+		Assert.assertTrue(ifalertdisplayed,  "No alert displayed.");
 	}
-	
-
 	
 	public void invalidcodetest(String code, String expectedalertmessage) {
 		pagetitle = qpf.tryhere();
 		qpf.entercode(code);
 		qpf.clickrun();
 		boolean ifalertdisplayed = qpf.isAlertPresent();
-		assertEquals(ifalertdisplayed, true, "No alert displayed.");
+		Assert.assertEquals(ifalertdisplayed, true, "No alert displayed.");
 		String alertmessage = qpf.handlealert();
 		LoggerLoad.info(alertmessage);
-		assertEquals(alertmessage, expectedalertmessage, "Incorrect alert message displayed.");
+		Assert.assertEquals(alertmessage, expectedalertmessage, "Incorrect alert message displayed.");
 	}
 	
 	public void validcodetest(String tryherecode,String expectedconsoleoutput) {
@@ -150,7 +145,7 @@ public class Queuetest {
 		qpf.entercode(tryherecode);
 		qpf.clickrun();
 		String output = qpf.getoutput();
-		assertEquals(output, expectedconsoleoutput, "Incorrect output displayed.");
+		Assert.assertEquals(output, expectedconsoleoutput, "Incorrect output displayed.");
 		LoggerLoad.info("Output is "+output);
 	}
 
