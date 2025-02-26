@@ -37,7 +37,7 @@ public class Queuepf {
 		PageFactory.initElements(driver,this);
 		Queuegetstarted.click();
 	    pagetitle = driver.getTitle();
-		return pagetitle;
+	   	return pagetitle;
 	}
 	
 	public void navigateback() {
