@@ -67,14 +67,14 @@ public class ListenerTest extends ExtentManager implements ITestListener{
 	      test.log(Status.FAIL,
 	          MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
 	     // Object testClass = result.getInstance();
-//	        WebDriver driver = baseclass.driver;
-//	        // Allure ScreenShotRobot and SaveTestLog
-//	        if (driver instanceof WebDriver) {
-//	            System.out.println("Screenshot captured for test case:" + result.getName());
-//	            saveScreenshotPNG(driver);
-//	        }
-//	        // Save a log on allure.
-//	        saveTextLog(result.getName() + " failed and screenshot taken!");
+	        WebDriver driver = baseclass.driver;
+	        // Allure ScreenShotRobot and SaveTestLog
+	        if (driver instanceof WebDriver) {
+	            System.out.println("Screenshot captured for test case:" + result.getName());
+	            saveScreenshotPNG(driver);
+	        }
+	        // Save a log on allure.
+	        saveTextLog(result.getName() + " failed and screenshot taken!");
 	    }
 	    }
 
