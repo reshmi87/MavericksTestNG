@@ -1,26 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-
 <suite name="Suite" parallel="classes" thread-count="5">
-  <test name="ChromeBrowser">
-  <parameter name="browser"  value="Chrome"/>
-    <classes>
-    	<class name="Base.baseclass"/>
-      	<class name="Tests.Queuetest"/>
-    </classes>
-  </test> <!-- Test -->
-  <test name="EdgeBrowser">
-  <parameter name="browser"  value="Edge"/>
-    <classes>
-    	<class name="Base.baseclass"/>
-      	<class name="Tests.Queuetest"/>
-    </classes>
-  </test> <!-- Test -->
-   <test name="FirefoxBrowser">
-  <parameter name="browser"  value="Firefox"/>
-    <classes>
-    	<class name="Base.baseclass"/>
-      	<class name="Tests.Queuetest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+<listeners>
+<listener class-name="Listeners.Transformer"/>
+<listener class-name="Listeners.ListenerTest"/>
+</listeners>
+<test name="ChromeBrowser">
+<parameter name="browser" value="Chrome"/>
+<classes>
+<class name="Base.baseclass"/>
+<class name="Tests.Queuetest"/>
+</classes>
+</test>
+<!--  Test  -->
+</suite>
+<!--  Suite  -->
