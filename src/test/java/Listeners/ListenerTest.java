@@ -1,5 +1,6 @@
 package Listeners;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import Base.baseclass;
 import Commons.LoggerLoad;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 
 public class ListenerTest extends ExtentManager implements ITestListener{
@@ -60,6 +62,10 @@ public class ListenerTest extends ExtentManager implements ITestListener{
 	
 	@Override
 	public void onTestFailure(ITestResult result) {
+		String ScreenshotName = result.getMethod().getMethodName().replace(" ", "_") + ".png";
+		String ScreenshotDir = "\\screenshots\\";
+		String path = System.getProperty("user.dir")+ ScreenshotDir +ScreenshotName;
+		
 	LoggerLoad.info("Test Execution-"+result.getName()+":FAILED");
 	 if (result.getStatus() == ITestResult.FAILURE) {
 	      test.log(Status.FAIL,
@@ -72,6 +78,7 @@ public class ListenerTest extends ExtentManager implements ITestListener{
 	        if (driver instanceof WebDriver) {
 	            System.out.println("Screenshot captured for test case:" + result.getName());
 	            saveScreenshotPNG(driver);
+	            Allure.addAttachment(ScreenshotName, new ByteArrayInputStream(saveScreenshotPNG(driver)));
 	        }
 	        // Save a log on allure.
 	        saveTextLog(result.getName() + " failed and screenshot taken!");
