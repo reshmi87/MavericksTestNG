@@ -6,8 +6,11 @@
  <test name="ChromeBrowser">
    <parameter name="browser"  value="Chrome"/>
     <classes>
-      <class name="Tests.Arraytest"/>
-      <class name="Tests.Queuetest"/>
+    <class name="Tests.Registertest"/>
+    <class name="Tests.Logintest"/>
+    <class name="Tests.Hometest"/>
+    <class name="Tests.Arraytest"/>
+    <class name="Tests.Queuetest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
