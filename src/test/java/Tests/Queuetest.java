@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -13,21 +14,17 @@ import Commons.DataProviderClass;
 import Commons.LoggerLoad;
 import PageObjects.Queuepf;
 
-public class Queuetest {
+public class Queuetest extends baseclass{
 	public baseclass base = new baseclass();
 	public ConfigReader config = new ConfigReader();
 	Queuepf qpf;
 	String pagetitle;
 	WebDriver driver;
 	
-    @BeforeClass
-    public void logintoportal() throws IOException {
-	   	base.login();
-		qpf=new Queuepf();
-	}
-	
 	@Test(priority=1)
 	public void queuefromgetstarted() throws IOException {
+		base.login();
+		qpf=new Queuepf();
 	    pagetitle = qpf.Queuepage();
 		LoggerLoad.info("Currently in page: "+pagetitle);
 		qpf.navigateback();
@@ -45,13 +42,13 @@ public class Queuetest {
 		nocodetest();
 	}
 	
-	@Test(dataProvider = "Invalidpythoncode", dataProviderClass = DataProviderClass.class, priority=4)
+	@Test(priority=4, dataProvider = "Invalidpythoncode", dataProviderClass = DataProviderClass.class)
 	public void testwithinvalidcodeimplementationofqueueinpython(String tryherecode, String expectedalertmessage) {
 		qpf.navigateback();
 		invalidcodetest(tryherecode,expectedalertmessage);
 	}
 	
-	@Test(dataProvider = "Validpythoncode", dataProviderClass = DataProviderClass.class, priority=5)
+	@Test(priority=5, dataProvider = "Validpythoncode", dataProviderClass = DataProviderClass.class)
 	public void testwithvalidcodeimplementationofqueueinpython(String tryherecode, String expectedconsoleoutput) {
 		qpf.navigateback();
 		validcodetest(tryherecode,expectedconsoleoutput);
@@ -70,7 +67,7 @@ public class Queuetest {
 		invalidcodetest(tryherecode,expectedalertmessage);
 	}
 	
-	@Test(dataProvider = "Validpythoncode", dataProviderClass = DataProviderClass.class, priority=8)
+	@Test(priority=8, dataProvider = "Validpythoncode", dataProviderClass = DataProviderClass.class)
 	public void testwithvalidcodeimplementationusingcollcdeque(String tryherecode, String expectedconsoleoutput) {
 		qpf.navigateback();
 		validcodetest(tryherecode,expectedconsoleoutput);
@@ -89,7 +86,7 @@ public class Queuetest {
 		invalidcodetest(tryherecode,expectedalertmessage);
 	}
 	
-	@Test(dataProvider = "Validpythoncode", dataProviderClass = DataProviderClass.class, priority=11)
+	@Test(priority=11, dataProvider = "Validpythoncode", dataProviderClass = DataProviderClass.class)
 	public void testwithvalidcodeimplementationusingarray(String tryherecode, String expectedconsoleoutput) {
 		qpf.navigateback();
 		validcodetest(tryherecode,expectedconsoleoutput);
@@ -102,19 +99,19 @@ public class Queuetest {
 		nocodetest();
 	}
 	
-	@Test(priority=11, dataProvider = "Invalidpythoncode", dataProviderClass = DataProviderClass.class)
+	@Test(priority=13, dataProvider = "Invalidpythoncode", dataProviderClass = DataProviderClass.class)
 	public void testwithinvalidcodequeueoperations(String tryherecode, String expectedalertmessage) {
 		qpf.navigateback();
 		invalidcodetest(tryherecode,expectedalertmessage);
 	}
 	
-	@Test(dataProvider = "Validpythoncode", dataProviderClass = DataProviderClass.class, priority=13)
+	@Test(priority=14, dataProvider = "Validpythoncode", dataProviderClass = DataProviderClass.class)
 	public void testwithvalidcodequeueoperations(String tryherecode, String expectedconsoleoutput) {
 		qpf.navigateback();
 		validcodetest(tryherecode,expectedconsoleoutput);
 	}
 	
-	@Test(priority=14)
+	@Test(priority=15)
 	public void testpracticecode() {
 		qpf.navigateback();
 		qpf.PracticeQuestion();
@@ -148,5 +145,7 @@ public class Queuetest {
 		Assert.assertEquals(output, expectedconsoleoutput, "Incorrect output displayed.");
 		LoggerLoad.info("Output is "+output);
 	}
+	
+
 
 }
