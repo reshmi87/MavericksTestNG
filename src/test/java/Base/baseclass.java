@@ -43,6 +43,11 @@ public class baseclass {
 	login.login(username, password);
 	
 	}
+
+	@AfterClass(alwaysRun = true)
+	public void Closebrowser() {
+		 driver.quit();
+	}
 	
 	@AfterTest(alwaysRun = true)
 	public void EndExtent() {
