@@ -66,4 +66,44 @@ public class DataProviderClass {
 			{practicequescode,expectedoutput}
 			};
 	}
+	
+	@DataProvider(name = "Registervalidcredentials")
+	public Object[][] Registervalidcredentials() throws IOException {
+		ExcelReader read = new ExcelReader();
+		String username = read.getusername(9);
+		String password=read.getpassword(9);
+		return new Object[][]{
+		{username,password}
+		};
+	}
+	
+	@DataProvider(name = "Registerinvalidusername")
+	public Object[][] Registerinvalidusername() throws IOException {
+		ExcelReader read = new ExcelReader();
+		String username = read.getusername(6);
+		String password=read.getpassword(6);
+		return new Object[][]{
+		{username,password}
+		};
+	}
+	
+	@DataProvider(name = "Registerinvalidpassword")
+	public Object[][] Registerinvalidpassword() throws IOException {
+		ExcelReader read = new ExcelReader();
+		String username = read.getusername(8);
+		String password=read.getpassword(8);
+		return new Object[][]{
+		{username,password}
+		};
+	}
+	
+	@DataProvider(name = "LoginValidcredentials")
+	public Object[][] LoginValidcredentials() throws IOException {
+		ExcelReader read = new ExcelReader();
+		String username = read.getusername(2);
+		String password=read.getpassword(2);
+		return new Object[][]{
+		{username,password}
+		};
+	}
 }

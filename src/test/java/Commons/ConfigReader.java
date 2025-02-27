@@ -15,7 +15,6 @@ public class ConfigReader {
 		return appurl;
 	}
 	
-	
 	public String getusername() throws IOException {
 	prop.load(ConfigReader.class.getClassLoader().getResourceAsStream("configuration.properties"));
 	username = prop.getProperty("username");
@@ -27,10 +26,10 @@ public class ConfigReader {
 		password = prop.getProperty("password");
 		return password;
 		}
-	public static String browserfromconfigfile() throws IOException {
-		
+	
+	public static String getportalurl() throws IOException {
 		prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
-		String browserType = prop.getProperty("browser");
+		String browserType = prop.getProperty("herokuappurl");
 		return browserType;
 	}
 }
