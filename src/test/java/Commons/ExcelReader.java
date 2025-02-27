@@ -81,7 +81,14 @@ public ArrayList<String> getpracticeques(int rownumber) throws IOException {
 	LoggerLoad.info("Practice Question:"+practiceques);
 	return practiceques;
 }
-
+public String getPQoutput(int rownumber) throws IOException {
+	String pqoutput = null;	
+	String sheetname = "practiceq";
+	pqoutput = readExcelSheet(rownumber, 1, sheetname);
+	pqoutput=pqoutput.replace("Output", "");
+	LoggerLoad.info("Expected output is:"+pqoutput);
+	return pqoutput;
+}
 public ArrayList<String> readpracticeques(int rowvalue, int colvalue, String sheetname) throws IOException {
 	
 	String path = System.getProperty("user.dir")+"/src/test/resources/testdata/testdata.xlsx";

@@ -41,8 +41,7 @@ public class ListenerTest extends ExtentManager implements ITestListener{
 	public void onTestStart(ITestResult result) {
 	LoggerLoad.info("Test Execution-"+result.getName()+":STARTED");
 	test = extent.createTest(result.getName());
-	
-}
+   }
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
@@ -63,18 +62,15 @@ public class ListenerTest extends ExtentManager implements ITestListener{
 	@Override
 	public void onTestFailure(ITestResult result) {
 		String ScreenshotName = result.getMethod().getMethodName().replace(" ", "_") + ".png";
-		String ScreenshotDir = "\\screenshots\\";
-		String path = System.getProperty("user.dir")+ ScreenshotDir +ScreenshotName;
-		
 	LoggerLoad.info("Test Execution-"+result.getName()+":FAILED");
 	 if (result.getStatus() == ITestResult.FAILURE) {
 	      test.log(Status.FAIL,
 	          MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED));
 	      test.log(Status.FAIL,
 	          MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
-	     // Object testClass = result.getInstance();
+	 
+	      // Allure ScreenShot and SaveTestLog
 	        WebDriver driver = baseclass.driver;
-	        // Allure ScreenShotRobot and SaveTestLog
 	        if (driver instanceof WebDriver) {
 	            System.out.println("Screenshot captured for test case:" + result.getName());
 	            saveScreenshotPNG(driver);
