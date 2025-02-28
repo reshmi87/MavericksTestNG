@@ -1,4 +1,4 @@
-<suite name="Suite" parallel="false" thread-count="5">
+<suite name="Suite" >
 <listeners>
 <listener class-name="Listeners.Transformer"/>
 <listener class-name="Listeners.ListenerTest"/>
@@ -6,11 +6,13 @@
  <test name="ChromeBrowser">
    <parameter name="browser"  value="Chrome"/>
     <classes>
-    <class name="Tests.Registertest"/>
-    <class name="Tests.Logintest"/>
-    <class name="Tests.Hometest"/>
     <class name="Tests.Arraytest"/>
-    <class name="Tests.Queuetest"/>
+      <class name="Tests.Queuetest"/>
+      <class name="Tests.Registertest"/>
+      <class name="Tests.Logintest"/>
+      <class name="Tests.Graphtest"/>
+      <class name="Tests.Hometest"/>
+      <class name="Tests.Treetest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

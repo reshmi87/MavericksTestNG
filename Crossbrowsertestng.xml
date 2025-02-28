@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Cross browser testing Suite">
+<listeners>
+<listener class-name="Listeners.ListenerTest"></listener>
+<listener class-name="Listeners.Transformer"></listener>
+</listeners>
+  <test name="ChromeBrowser">
+   <parameter name="browser"  value="Chrome"/>
+    <classes>
+       <class name="Tests.Arraytest"/>
+      <class name="Tests.Queuetest"/>
+      <class name="Tests.Registertest"/>
+      <class name="Tests.Logintest"/>
+      <class name="Tests.Graphtest"/>
+      <class name="Tests.Hometest"/>
+      <class name="Tests.Treetest"/>
+    </classes>
+  </test> <!-- Test -->
+   <test name="FirefoxeBrowser">
+   <parameter name="browser"  value="Firefox"/>
+    <classes>
+        <class name="Tests.Arraytest"/>
+      <class name="Tests.Queuetest"/>
+      <class name="Tests.Registertest"/>
+      <class name="Tests.Logintest"/>
+      <class name="Tests.Graphtest"/>
+      <class name="Tests.Hometest"/>
+      <class name="Tests.Treetest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="EdgeBrowser">
+   <parameter name="browser"  value="Edge"/>
+    <classes>
+        <class name="Tests.Arraytest"/>
+      <class name="Tests.Queuetest"/>
+      <class name="Tests.Registertest"/>
+      <class name="Tests.Logintest"/>
+      <class name="Tests.Graphtest"/>
+      <class name="Tests.Hometest"/>
+      <class name="Tests.Treetest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
