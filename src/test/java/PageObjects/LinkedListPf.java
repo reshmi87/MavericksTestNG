@@ -215,4 +215,8 @@ public class LinkedListPf {
 		dsDropDown.click();
 		linkedListDropDownValue.click();
 	}
+	
+	public void closebrowser() {
+		driver.quit();
+	}
 }

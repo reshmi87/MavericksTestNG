@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -11,7 +12,7 @@ import Base.baseclass;
 import Commons.DataProviderClass;
 import PageObjects.StackPf;
 
-public class StackTest {
+public class StackTest extends baseclass {
 	private baseclass base = new baseclass();
 	WebDriver driver;
 	StackPf stackPf;
@@ -111,6 +112,11 @@ public class StackTest {
 	private void sendCode(String tryherecode) {
 		stackPf.sendCode(tryherecode);
 		stackPf.clickRun();
+	}
+	
+	@AfterClass(alwaysRun = true)
+	public void teardown() {
+		stackPf.closebrowser();
 	}
 
 }
