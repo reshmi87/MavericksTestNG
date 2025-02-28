@@ -28,6 +28,7 @@ public class Graphtest extends baseclass{
 		gpf=new Graphpf();
 	    pagetitle = gpf.Graphmainpage();
 		LoggerLoad.info("Currently in page: "+pagetitle);
+		Assert.assertEquals(pagetitle, "Graph", "Not in Graph Page");
 		gpf.navigateback();
 	}
 	
@@ -35,6 +36,7 @@ public class Graphtest extends baseclass{
 	public void Graphfromdd() {
 		pagetitle = gpf.GraphpagefromDD();
 		LoggerLoad.info("Currently in page: "+pagetitle);
+		Assert.assertEquals(pagetitle, "Graph", "Not in Graph Page");
 	}
 	
 	@Test(priority=3)

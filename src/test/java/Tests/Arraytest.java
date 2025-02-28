@@ -29,6 +29,7 @@ public class Arraytest extends baseclass{
 		apf=new Arraypf();
 	    pagetitle = apf.Arraypage();
 		LoggerLoad.info("Currently in page: "+pagetitle);
+		Assert.assertEquals(pagetitle, "Array", "Not in Array Page");
 		apf.navigateback();
 	}
 	
@@ -36,6 +37,7 @@ public class Arraytest extends baseclass{
 	public void arrayfromdd() {
 		pagetitle = apf.ArraypagefromDD();
 		LoggerLoad.info("Currently in page: "+pagetitle);
+		Assert.assertEquals(pagetitle, "Array", "Not in Array Page");
 	}
 	
 	@Test(priority=3)

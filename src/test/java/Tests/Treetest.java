@@ -26,6 +26,7 @@ public class Treetest  extends baseclass{
 		tpf=new Treepf();
 	    pagetitle = tpf.Treepage();
 		LoggerLoad.info("Currently in page: "+pagetitle);
+		Assert.assertEquals(pagetitle, "Tree", "Not in Tree Page");
 		tpf.navigateback();
 	}
 	
@@ -33,6 +34,7 @@ public class Treetest  extends baseclass{
 	public void treefromdd() {
 		pagetitle = tpf.TreepagefromDD();
 		LoggerLoad.info("Currently in page: "+pagetitle);
+		Assert.assertEquals(pagetitle, "Tree", "Not in Tree Page");
 	}
 	
 	@Test(priority=3)

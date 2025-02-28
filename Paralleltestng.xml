@@ -8,6 +8,8 @@
 	<test name="ChromeBrowser">
 		<parameter name="browser" value="Chrome" />
 		<classes>
+			<class name="Tests.Arraytest" />
+			<class name="Tests.Queuetest" />
 			<class name="Tests.Registertest" />
 			<class name="Tests.Logintest" />
 			<class name="Tests.Graphtest" />
@@ -15,6 +17,7 @@
 			<class name="Tests.Treetest" />
 			<class name="Tests.StackTest" />
 			<class name="Tests.LinkedListTest" />
+			<class name="Tests.DataStructuretest" />
 		</classes>
 	</test> <!--
 	Test -->
