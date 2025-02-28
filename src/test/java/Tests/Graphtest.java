@@ -3,10 +3,13 @@ package Tests;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import Base.baseclass;
+import Commons.BrowserFactory;
 import Commons.ConfigReader;
 import Commons.DataProviderClass;
 import Commons.LoggerLoad;
@@ -17,7 +20,7 @@ public class Graphtest extends baseclass{
 	public ConfigReader config = new ConfigReader();
 	Graphpf gpf;
 	String pagetitle;
-	WebDriver driver;
+	WebDriver driver = BrowserFactory.getdriverinstance();
 	
 	@Test(priority=1)
 	public void Graphfromgetstarted() throws IOException {
@@ -104,6 +107,11 @@ public class Graphtest extends baseclass{
 		String output = gpf.getoutput();
 		Assert.assertEquals(output, expectedconsoleoutput, "Incorrect output displayed.");
 		LoggerLoad.info("Output is "+output);
+	}
+	
+	@AfterClass(alwaysRun = true)
+	public void teardown() {
+		gpf.closebrowser();
 	}
 
 }

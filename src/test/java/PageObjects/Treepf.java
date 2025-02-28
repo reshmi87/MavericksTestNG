@@ -186,5 +186,7 @@ public class Treepf {
     	String output = consoleoutput.getText();
     	return output;
     }
-
+    public void closebrowser() {
+   	 driver.quit();
+       }
 }

@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import Base.baseclass;
@@ -85,5 +86,10 @@ public class Logintest extends baseclass{
 		pagetitle = lpf.checkpageTitle();
 		LoggerLoad.info("Current page: "+pagetitle);
 		Assert.assertEquals(pagetitle, "Registration", "Incorrect Page");
+	}
+	
+	@AfterClass(alwaysRun = true)
+	public void teardown() {
+		lpf.closebrowser();
 	}
 }

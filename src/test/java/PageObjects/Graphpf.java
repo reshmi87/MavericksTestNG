@@ -119,6 +119,8 @@ public class Graphpf {
     	return output;
     }
 
-
+    public void closebrowser() {
+	 driver.quit();
+    }
 }
 
