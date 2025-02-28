@@ -159,5 +159,9 @@ public class StackPf {
 		dsDropDown.click();
 		stackDropDownValue.click();
 	}
+	
+	public void closebrowser() {
+		driver.quit();
+	}
 
 }

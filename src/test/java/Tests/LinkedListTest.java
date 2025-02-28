@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -11,7 +12,7 @@ import Base.baseclass;
 import Commons.DataProviderClass;
 import PageObjects.LinkedListPf;
 
-public class LinkedListTest {
+public class LinkedListTest extends baseclass {
 	private baseclass base = new baseclass();
 	WebDriver driver;
 	LinkedListPf linkedListPf;
@@ -185,4 +186,8 @@ public class LinkedListTest {
 		linkedListPf.clickRun();
 	}
 
+	@AfterClass(alwaysRun = true)
+	public void teardown() {
+		linkedListPf.closebrowser();
+	}
 }
