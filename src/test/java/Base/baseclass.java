@@ -44,15 +44,10 @@ public class baseclass {
 	
 	}
 	
-	@AfterClass(alwaysRun = true)
-	public void Closebrowser() {
-		 driver.quit();
-	}
 	
 	@AfterTest(alwaysRun = true)
 	public void EndExtent() {
 		 ExtentManager.endReport();
-		 driver.quit();
 	}
 	
 

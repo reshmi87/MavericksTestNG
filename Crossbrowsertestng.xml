@@ -3,13 +3,13 @@
 
 <suite name="Cross browser testing Suite">
 <listeners>
-<listener class-name="Listeners.ListenerTest"></listener>
 <listener class-name="Listeners.Transformer"></listener>
+<listener class-name="Listeners.ListenerTest"></listener>
 </listeners>
   <test name="ChromeBrowser">
    <parameter name="browser"  value="Chrome"/>
     <classes>
-       <class name="Tests.Arraytest"/>
+      <class name="Tests.Arraytest"/>
       <class name="Tests.Queuetest"/>
       <class name="Tests.Registertest"/>
       <class name="Tests.Logintest"/>
@@ -33,7 +33,7 @@
   <test name="EdgeBrowser">
    <parameter name="browser"  value="Edge"/>
     <classes>
-        <class name="Tests.Arraytest"/>
+      <class name="Tests.Arraytest"/>
       <class name="Tests.Queuetest"/>
       <class name="Tests.Registertest"/>
       <class name="Tests.Logintest"/>

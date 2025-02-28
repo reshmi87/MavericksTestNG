@@ -81,4 +81,7 @@ public class Homepf {
 		boolean isvaluepresent = Graphdd.isDisplayed();
 		return isvaluepresent;
 	}
+	public void closebrowser() {
+		 driver.quit();
+	    }
 }

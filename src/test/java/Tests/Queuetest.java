@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import Base.baseclass;
@@ -144,6 +146,8 @@ public class Queuetest extends baseclass{
 		LoggerLoad.info("Output is "+output);
 	}
 	
-
-
+	@AfterClass(alwaysRun = true)
+	public void teardown() {
+		qpf.closebrowser();
+	}
 }

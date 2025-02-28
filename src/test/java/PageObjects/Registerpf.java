@@ -103,4 +103,8 @@ public class Registerpf {
 	public void signout() {
 		signout.click();
 	}
+	
+	public void closebrowser() {
+		 driver.quit();
+	    }
 }

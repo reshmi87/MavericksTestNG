@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="ds Algo Testing Suite">
+<suite name="Parallel Testing suite"  thread-count="4" parallel="tests">
 <listeners>
-<listener class-name="Listeners.Transformer"></listener>
 <listener class-name="Listeners.ListenerTest"></listener>
 </listeners>
    <test name="ChromeBrowser">
    <parameter name="browser"  value="Chrome"/>
     <classes>
-     <class name="Tests.Arraytest"/>
+      <class name="Tests.Arraytest"/>
       <class name="Tests.Queuetest"/>
       <class name="Tests.Registertest"/>
       <class name="Tests.Logintest"/>

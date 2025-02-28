@@ -93,4 +93,7 @@ public class Loginpf {
 		usrname.clear();
 		password.clear();
 	}
+	public void closebrowser() {
+		 driver.quit();
+	    }
 }

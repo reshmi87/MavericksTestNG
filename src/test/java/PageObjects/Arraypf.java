@@ -206,5 +206,9 @@ public void enterarraycode(ArrayList<String> practicequescode) throws Interrupte
 			PQcodetextarea.sendKeys(lasttext);
 		}
 	}
-}
+	}
+
+public void closebrowser() {
+	 driver.quit();
+   }
 }

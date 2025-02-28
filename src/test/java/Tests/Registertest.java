@@ -3,10 +3,13 @@ package Tests;
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import Base.baseclass;
+import Commons.BrowserFactory;
 import Commons.DataProviderClass;
 import Commons.LoggerLoad;
 import PageObjects.Loginpf;
@@ -135,5 +138,10 @@ public class Registertest extends baseclass{
 		String actualmessage = rpf.geterrormessage();
 		LoggerLoad.info(actualmessage);
 		assertEquals(actualmessage, expectedmessage, "Incorrect error message");
+	}
+	
+	@AfterClass(alwaysRun = true)
+	public void teardown() {
+		rpf.closebrowser();
 	}
 }

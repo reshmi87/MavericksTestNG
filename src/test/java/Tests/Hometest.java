@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import Base.baseclass;
@@ -71,5 +72,10 @@ public class Hometest extends baseclass{
 		assertEquals(hpf.checkqueue(), queue, "Queue not present");
 		assertEquals(hpf.checktree(), tree, "Tree not present");
 		assertEquals(hpf.checkgraph(), graph, "Graph not present");
+	}
+	
+	@AfterClass(alwaysRun = true)
+	public void teardown() {
+		hpf.closebrowser();
 	}
 }
