@@ -17,14 +17,10 @@ public class StackTest extends baseclass {
 	WebDriver driver;
 	StackPf stackPf;
 
-	@BeforeClass
-	public void logintoportal() throws IOException {
-		base.login();
-		stackPf = new StackPf();
-	}
-	
 	@Test(priority=1)
 	public void testStackFromGetStarted() throws IOException {
+		base.login();
+		stackPf = new StackPf();
 		stackPf.stackPage();
 		Assert.assertTrue(stackPf.isOnStackPage());
 	}

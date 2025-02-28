@@ -27,6 +27,7 @@ public class Queuetest extends baseclass{
 		qpf=new Queuepf();
 	    pagetitle = qpf.Queuepage();
 		LoggerLoad.info("Currently in page: "+pagetitle);
+		Assert.assertEquals(pagetitle, "Queue", "Not in Queue Page");
 		qpf.navigateback();
 	}
 	
@@ -34,6 +35,7 @@ public class Queuetest extends baseclass{
 	public void queuefromdd() {
 		pagetitle = qpf.QueuepagefromDD();
 		LoggerLoad.info("Currently in page: "+pagetitle);
+		Assert.assertEquals(pagetitle, "Queue", "Not in Queue Page");
 	}
 	
 	@Test(priority=3)

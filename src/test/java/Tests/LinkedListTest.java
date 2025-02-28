@@ -16,15 +16,11 @@ public class LinkedListTest extends baseclass {
 	private baseclass base = new baseclass();
 	WebDriver driver;
 	LinkedListPf linkedListPf;
-
-	@BeforeClass
-	public void logintoportal() throws IOException {
-		base.login();
-		linkedListPf = new LinkedListPf();
-	}
 	
 	@Test(priority=1)
 	public void testLinkedListFromGetStarted() throws IOException {
+		base.login();
+		linkedListPf = new LinkedListPf();
 		linkedListPf.linkedListPage();
 		Assert.assertTrue(linkedListPf.isOnLinkedListPage());
 	}
